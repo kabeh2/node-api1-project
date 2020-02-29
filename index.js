@@ -2,6 +2,7 @@
 const debug = require("debug")("app:dev");
 const morgan = require("morgan");
 const helmet = require("helmet");
+const cors = require("cors");
 const users = require("./routes/users");
 const express = require("express");
 const app = express();
@@ -10,6 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(helmet());
+app.use(cors());
 
 // Morgan Logging in Development only
 if (app.get("env") === "development") {
@@ -20,5 +22,5 @@ if (app.get("env") === "development") {
 // Routes
 app.use("/api/users", users);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 app.listen(port, () => debug(`Listening on port ${port}...`));
