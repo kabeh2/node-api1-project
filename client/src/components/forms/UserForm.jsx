@@ -52,8 +52,6 @@ function UserForm({ users, getRequest, addUser, updateUser }) {
           .required("Required")
       })}
       onSubmit={async (values, { setErrors, setStatus, resetForm }) => {
-        console.log(values);
-
         try {
           if (!location.state) {
             console.log("Adding user...");

@@ -4,9 +4,9 @@ import { withRouter } from "react-router-dom";
 import { getRequest, deleteUser } from "../store/actions";
 import ProfileCard from "./ProfileCard";
 import { Row, Col } from "antd";
+import AbsoluteWrapper from "./AbsoluteWrapper";
 
 function Home({ users, getRequest, match, deleteUser }) {
-  console.log(match);
   useEffect(
     () => {
       getRequest(match.params.id && match.params.id);
@@ -16,29 +16,31 @@ function Home({ users, getRequest, match, deleteUser }) {
   );
 
   return (
-    <Row justify="center" style={{ margin: "40px 0px" }}>
-      <Col
-        span={22}
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center"
-        }}
-      >
-        {users &&
-          users.map(user => (
-            <ProfileCard
-              name={user.name}
-              bio={user.bio}
-              id={user.id}
-              key={user.id}
-              deleteUser={deleteUser}
-              users={users}
-              viewMore={match.params.id !== undefined}
-            />
-          ))}
-      </Col>
-    </Row>
+    <AbsoluteWrapper>
+      <Row justify="center" style={{ margin: "40px 0px" }}>
+        <Col
+          span={22}
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center"
+          }}
+        >
+          {users &&
+            users.map(user => (
+              <ProfileCard
+                name={user.name}
+                bio={user.bio}
+                id={user.id}
+                key={user.id}
+                deleteUser={deleteUser}
+                users={users}
+                viewMore={match.params.id !== undefined}
+              />
+            ))}
+        </Col>
+      </Row>
+    </AbsoluteWrapper>
   );
 }
 

@@ -20,8 +20,6 @@ export const getRequest = id => {
   return async dispatch => {
     await dispatch(fetchRequest());
 
-    console.log("ID HERE: ", id);
-
     try {
       let dataArray;
       const { data } = await axios.get(`${apiEndpoint}/${id ? id : ""}`);
@@ -33,7 +31,7 @@ export const getRequest = id => {
 
       await dispatch(fetchSuccess(dataArray));
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
       await dispatch(fetchError(error.message));
     }
   };
