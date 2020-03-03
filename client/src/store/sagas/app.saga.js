@@ -13,7 +13,6 @@ export function* tryGetRequest(action) {
   try {
     yield put(fetchRequest());
     const data = yield call(fetchData, action.payload);
-    console.log("Data: ", data);
 
     const id = action.payload;
     let dataArray;
