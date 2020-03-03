@@ -3,7 +3,7 @@ export {
   fetchSuccess,
   fetchUpdate,
   fetchError,
-  getRequest,
+  // getRequest,
   deleteUser,
   addUser,
   updateUser
