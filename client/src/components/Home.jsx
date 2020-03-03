@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { getRequest, deleteUser } from "../store/actions";
 import ProfileCard from "./ProfileCard";
 import { Row, Col } from "antd";
 import AbsoluteWrapper from "./AbsoluteWrapper";
+import { getRequest, deleteUser } from "../store/actions/actionCreators";
 
 function Home({ users, getRequest, match, deleteUser }) {
   useEffect(

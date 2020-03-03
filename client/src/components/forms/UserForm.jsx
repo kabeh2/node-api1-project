@@ -8,7 +8,11 @@ import { SendOutlined, ArrowLeftOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import MyTextInput from "./TextInput";
 import { Link } from "react-router-dom";
-import { getRequest, addUser, updateUser } from "../../store/actions";
+import {
+  getRequest,
+  addUser,
+  updateUser
+} from "../../store/actions/actionCreators";
 
 const NewBtn = styled.button`
   width: 100%;
@@ -60,7 +64,7 @@ function UserForm({ users, getRequest, addUser, updateUser }) {
 
           if (location.state) {
             console.log("Updating user...");
-            await updateUser(values, location.state.id, users);
+            await updateUser(values, location.state.id);
           }
           resetForm({});
           setStatus({ success: true });
@@ -109,7 +113,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getRequest: id => dispatch(getRequest(id)),
   addUser: values => dispatch(addUser(values)),
-  updateUser: (values, id, users) => dispatch(updateUser(values, id, users))
+  updateUser: (values, id) => dispatch(updateUser(values, id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserForm);
