@@ -4,7 +4,11 @@
   "description": "Node API 1 Project Starter Code",
   "main": "index.js",
   "scripts": {
-    "server": "export NODE_ENV=development && export DEBUG=app:dev && nodemon index.js"
+    "server": "export NODE_ENV=development && export DEBUG=app:dev && nodemon index.js",
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "10.16.2"
   },
   "repository": {
     "type": "git",
