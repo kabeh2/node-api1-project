@@ -1,1 +1,1 @@
-export const apiEndpoint = "http://localhost:3001/api/users/";
+export const apiEndpoint = "https://node-api1-project.herokuapp.com/api/users";
