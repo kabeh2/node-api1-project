@@ -17,7 +17,13 @@ function ProfileCard({ name, bio, id, viewMore, deleteUser, users }) {
       extra={
         !viewMore ? <Link to={`/${id}`}>View</Link> : <Link to={`/`}>Back</Link>
       }
-      style={{ flexBasis: "31%", minWidth: 300, margin: "0px 8px 16px 8px" }}
+      style={{
+        flexBasis: "31%",
+        minWidth: 300,
+        margin: "0px 8px 16px 8px",
+        display: "flex",
+        flexDirection: "column"
+      }}
       actions={
         viewMore
           ? [
